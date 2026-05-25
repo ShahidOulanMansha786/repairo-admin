@@ -11,7 +11,7 @@ export async function POST() {
         return NextResponse.json({ message: "No refresh token" }, { status: 401 });
     }
 
-    const springResponse = await fetch("http://localhost:8080/auth/refresh", {
+    const springResponse = await fetch("http://13.233.250.42:8080/auth/refresh", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refreshToken }),

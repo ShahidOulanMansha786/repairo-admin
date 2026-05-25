@@ -8,7 +8,7 @@ export async function POST() {
     const accessToken = cookieStore.get("admin_access_token")?.value;
 
     if (accessToken) {
-        await fetch("http://localhost:8080/auth/logout", {
+        await fetch("http://13.233.250.42:8080/auth/logout", {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${accessToken}`,
