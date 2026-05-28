@@ -18,8 +18,8 @@ export default async function DashboardLayout({
     return (
         <div className="flex">
             <Sidebar />
-            <main className="ml-64 flex-1 p-8 min-h-screen bg-gray-50">
-                {children}
+            <main className="ml-[260px] flex-1 p-8 min-h-screen bg-gray-50">
+            {children}
             </main>
         </div>
     );

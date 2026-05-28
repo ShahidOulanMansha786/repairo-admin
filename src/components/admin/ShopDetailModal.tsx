@@ -9,6 +9,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import api from "@/lib/axios";
 
 interface ShopDetailDto {
     shopId: number;
@@ -67,13 +68,8 @@ export default function ShopDetailModal({ shopId, isOpen, onClose, onActionCompl
             setRejectionReason("");
 
             try {
-                const res = await fetch(`/api/admin/shops/${shopId}`);
-                if (!res.ok) {
-                    setError("Failed to load shop details.");
-                    return;
-                }
-                const data = await res.json();
-                setShop(data);
+                const res = await api.get(`/admin/shops/${shopId}`);
+                setShop(res.data);
             } catch {
                 setError("Failed to load shop details.");
             } finally {

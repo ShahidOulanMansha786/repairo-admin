@@ -5,7 +5,7 @@ export async function POST(request: Request) {
 
     const body = await request.json();
 
-    const springResponse = await fetch("http://13.233.250.42:8080/admin/auth/login", {
+    const springResponse = await fetch(`${process.env.API_URL}/admin/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
