@@ -155,9 +155,7 @@ function StatCard({
     );
 }
 
-// ─────────────────────────────────────────────
-//  PERIOD BUTTON
-// ─────────────────────────────────────────────
+
 function PeriodBtn({
                        label, active, onClick,
                    }: {

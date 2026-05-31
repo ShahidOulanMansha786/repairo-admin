@@ -5,6 +5,21 @@ const api = axios.create({
     headers: { "Content-Type": "application/json" },
 });
 
+// Disputes
+export const getDisputeStats = () =>
+    api.get("/admin/disputes/stats");
+
+export const getDisputes = (params: {
+    page?: number;
+    size?: number;
+    status?: string
+}) => api.get("/admin/disputes", { params });
+
+export const resolveDispute = (
+    disputeId: number,
+    data: { resolution: "RESOLVED_SHOP" | "RESOLVED_OWNER"; adminNote: string }
+) => api.post(`/admin/disputes/${disputeId}/resolve`, data);
+
 let isRefreshing = false;
 let failedQueue: Array<{
     resolve: (value: unknown) => void;
